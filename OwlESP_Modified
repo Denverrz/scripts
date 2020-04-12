@@ -47,7 +47,7 @@ function OwlESP.new(data)
 
     local espBox = newDrawing("Square")
     espBox.Color = self.espColor
-    espBox.Thickness = 2
+    espBox.Thickness = 3
     espBox.Filled = false
     espBox.Transparency = 0.8
     local tracer = newDrawing("Line")
