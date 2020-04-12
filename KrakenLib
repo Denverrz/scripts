@@ -120,7 +120,7 @@ function KrakenLib:upd()
     end
 end
 
-function KrakenLib:rmvtb()
+function KrakenLib:remove()
     mt.boxEsp[1]:rmvtb()
     mt.Tracer[1]:rmvtb()
     mt.name[1]:rmvtb()
