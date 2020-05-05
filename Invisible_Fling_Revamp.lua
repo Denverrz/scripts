@@ -1,5 +1,5 @@
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/4bkx1mLs"))()
-local flyspeed = 1
+local Flyspeed = 1
 local Players = game:GetService("Players")
 
 function NOFLY()
@@ -13,7 +13,7 @@ w1:Slider("Fly Speed", {
     max = 50,
     flag = 'fs'
  }, function(v)
-    flyspeed = v;
+    Flyspeed = v;
 end)
 
 w1:Button("Start Fling", function()
@@ -159,17 +159,17 @@ w1:Button("Start Fling", function()
     
         Mouse.KeyDown:connect(function(KEY)
             if KEY:lower() == 'w' then
-                    CONTROL.F = flyspeed
+                    CONTROL.F = Flyspeed
             elseif KEY:lower() == 's' then
-                    CONTROL.B = - flyspeed
+                    CONTROL.B = - Flyspeed
             elseif KEY:lower() == 'a' then
-                    CONTROL.L = - flyspeed
+                    CONTROL.L = - Flyspeed
             elseif KEY:lower() == 'd' then                
-                    CONTROL.R = flyspeed
+                    CONTROL.R = Flyspeed
             elseif KEY:lower() == 'e' then
-                    CONTROL.Q = flyspeed*2
+                    CONTROL.Q = Flyspeed*2
             elseif KEY:lower() == 'q' then
-                    CONTROL.E = -flyspeed*2
+                    CONTROL.E = -Flyspeed*2
             end
         end)
         Mouse.KeyUp:connect(function(KEY)
