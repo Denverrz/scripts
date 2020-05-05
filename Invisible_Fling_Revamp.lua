@@ -1,5 +1,5 @@
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/4bkx1mLs"))()
-local iyflyspeed = 1
+local flyspeed = 1
 local Players = game:GetService("Players")
 
 function NOFLY()
@@ -13,7 +13,7 @@ w1:Slider("Fly Speed", {
     max = 50,
     flag = 'fs'
  }, function(v)
-    iyflyspeed = v;
+    flyspeed = v;
 end)
 
 w1:Button("Start Fling", function()
@@ -111,13 +111,11 @@ w1:Button("Start Fling", function()
     groot = root
 
     local Players = game:GetService("Players")
-    local IYMouse = Players.LocalPlayer:GetMouse()
-    local vfly = false
-    local vehicleflyspeed = 1
+    local Mouse = Players.LocalPlayer:GetMouse()
     
-    function sFLY(vfly)
+    function sFLY()
         repeat wait() until Players.LocalPlayer and Players.LocalPlayer.Character and Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart') and Players.LocalPlayer.Character:FindFirstChild('Humanoid')
-        repeat wait() until IYMouse
+        repeat wait() until Mouse
         local T = Players.LocalPlayer.Character.HumanoidRootPart
         local CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
         local lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
@@ -159,46 +157,22 @@ w1:Button("Start Fling", function()
             end)
         end
     
-        IYMouse.KeyDown:connect(function(KEY)
+        Mouse.KeyDown:connect(function(KEY)
             if KEY:lower() == 'w' then
-                if vfly then
-                    CONTROL.F = vehicleflyspeed
-                else
-                    CONTROL.F = iyflyspeed
-                end
+                    CONTROL.F = flyspeed
             elseif KEY:lower() == 's' then
-                if vfly then
-                    CONTROL.B = - vehicleflyspeed
-                else
-                    CONTROL.B = - iyflyspeed
-                end
+                    CONTROL.B = - flyspeed
             elseif KEY:lower() == 'a' then
-                if vfly then
-                    CONTROL.L = - vehicleflyspeed
-                else
-                    CONTROL.L = - iyflyspeed
-                end
-            elseif KEY:lower() == 'd' then 
-                if vfly then
-                    CONTROL.R = vehicleflyspeed
-                else
-                    CONTROL.R = iyflyspeed
-                end
+                    CONTROL.L = - flyspeed
+            elseif KEY:lower() == 'd' then                
+                    CONTROL.R = flyspeed
             elseif KEY:lower() == 'e' then
-                if vfly then
-                    CONTROL.Q = vehicleflyspeed*2
-                else
-                    CONTROL.Q = iyflyspeed*2
-                end
+                    CONTROL.Q = flyspeed*2
             elseif KEY:lower() == 'q' then
-                if vfly then
-                    CONTROL.E = -vehicleflyspeed*2
-                else
-                    CONTROL.E = -iyflyspeed*2
-                end
+                    CONTROL.E = -flyspeed*2
             end
         end)
-        IYMouse.KeyUp:connect(function(KEY)
+        Mouse.KeyUp:connect(function(KEY)
             if KEY:lower() == 'w' then
                 CONTROL.F = 0
             elseif KEY:lower() == 's' then
@@ -216,7 +190,7 @@ w1:Button("Start Fling", function()
         FLY()
     end
     
-    sFLY(false)
+    sFLY()
     wait()
     groot.CFrame = CFrame.new(savedpos)
 end)
