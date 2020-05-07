@@ -1,3 +1,9 @@
+game.StarterGui:SetCore("SendNotification",  {
+            Title = "Welcome";
+            Text = "Your game will freeze for a little bit, please wait until everything has loaded.";
+            Icon = "";
+            Duration = 5;
+        })
 --[[
 IronBrew:tm: obfuscation; Version 2.7.2
 ]]
