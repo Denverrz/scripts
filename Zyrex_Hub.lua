@@ -4,7 +4,7 @@ game.StarterGui:SetCore("SendNotification",  {
             Icon = "";
             Duration = 5;
         })
-wait(0.1)
+wait(1)
 --[[
 IronBrew:tm: obfuscation; Version 2.7.2
 ]]
