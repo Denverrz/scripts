@@ -189,9 +189,8 @@ w1:Button("Start Fling", function()
         end)
         FLY()
     end
-    
-    sFLY()
     groot.CFrame = CFrame.new(savedpos)
+    sFLY()
 end)
 
 w1:Button("Respawn", function()
