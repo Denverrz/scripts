@@ -43,20 +43,24 @@ w1:Button("Start Fling", function()
     z2.Position = Vector3.new(0, 9991, 0)
     game.Players.LocalPlayer.Character = prt
     wait(5)
-    game.StarterGui:SetCore("SendNotification",  {
-        Title = "Progress";
-        Text = "50%";
-        Icon = "";
-        Duration = 4;
-    })
+    spawn(function()
+        game.StarterGui:SetCore("SendNotification",  {
+            Title = "Progress";
+            Text = "50%";
+            Icon = "";
+            Duration = 4;
+        })
+    end)
     game.Players.LocalPlayer.Character = ch
     wait(6)
-    game.StarterGui:SetCore("SendNotification",  {
-        Title = "Complete";
-        Text = "Loaded!";
-        Icon = "";
-        Duration = 5;
-    })
+    spawn(function()
+        game.StarterGui:SetCore("SendNotification",  {
+            Title = "Complete";
+            Text = "Loaded!";
+            Icon = "";
+            Duration = 5;
+        })
+    end)
 
     local plr = game.Players.LocalPlayer
     mouse = plr:GetMouse()
@@ -114,8 +118,6 @@ w1:Button("Start Fling", function()
     local Mouse = Players.LocalPlayer:GetMouse()
     
     function sFLY()
-        repeat wait() until Players.LocalPlayer and Players.LocalPlayer.Character and Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart') and Players.LocalPlayer.Character:FindFirstChild('Humanoid')
-        repeat wait() until Mouse
         local T = Players.LocalPlayer.Character.HumanoidRootPart
         local CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
         local lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
@@ -189,7 +191,9 @@ w1:Button("Start Fling", function()
         end)
         FLY()
     end
+    
     sFLY()
+    wait()
     groot.CFrame = CFrame.new(savedpos)
 end)
 
